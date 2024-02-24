@@ -28,16 +28,35 @@ p {
   border-radius: 5px;
   margin-top: 20px;
   transition: all 0.3s;
+  position: relative;
 }
 .button:hover {
   transform: scale(1.1);
+}
+.button::before {
+  content: attr(title);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+.button:hover::before {
+  opacity: 1;
+  visibility: visible;
+  bottom: -45px;
 }
 </style>
 </head>
 <body>
 <h1>404 Error - Page Not Found</h1>
 <p>Sorry, the page you are looking for could not be found.</p>
-<a href="https://www.example.com" class="button" title="Enter The Game Site!">Learn More</a>
+<a href="https://www.example.com" class="button" title="Visit Example.com">Learn More</a>
 </body>
 </html>
-
